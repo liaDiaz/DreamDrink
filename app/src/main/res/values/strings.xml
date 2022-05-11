@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DreamDrink</string>
+    <string name="navegation_drawer_open">open</string>
+    <string name="navegation_drawer_close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

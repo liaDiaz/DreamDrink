@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/incioSesionFragment">
+    <fragment
+        android:id="@+id/incioSesionFragment"
+        android:name="edu.tec.dreamdrink.incioSesionFragment"
+        android:label="fragment_incio_sesion"
+        tools:layout="@layout/fragment_incio_sesion" />
+    <fragment
+        android:id="@+id/elegirVasoFragment"
+        android:name="edu.tec.dreamdrink.elegirVasoFragment"
+        android:label="fragment_elegir_vaso"
+        tools:layout="@layout/fragment_elegir_vaso" />
+</navigation>
