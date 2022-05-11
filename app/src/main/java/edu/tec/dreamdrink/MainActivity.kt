@@ -46,13 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override  fun onNavigationItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.nav_item_one) {
            findNavController(R.id.contenedor).navigate(R.id.incioSesionFragment)
-             /*  val fragment = incioSesionFragment()
-            val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(
-                R.id.
-            )
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()*/
 
                 Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()
         }
@@ -61,7 +54,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show()
 
         } else if (item.itemId  ==  R.id.nav_item_three) {
-            Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()
+            findNavController(R.id.contenedor).navigate(R.id.carritoFragment)
+            Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
 
         }
 

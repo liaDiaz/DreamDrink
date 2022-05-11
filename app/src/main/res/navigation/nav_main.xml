@@ -14,4 +14,9 @@
         android:name="edu.tec.dreamdrink.elegirVasoFragment"
         android:label="fragment_elegir_vaso"
         tools:layout="@layout/fragment_elegir_vaso" />
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="edu.tec.dreamdrink.carritoFragment"
+        android:label="fragment_carrito"
+        tools:layout="@layout/fragment_carrito" />
 </navigation>
