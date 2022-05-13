@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/contenedor"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="674dp"
         app:defaultNavHost="true"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"

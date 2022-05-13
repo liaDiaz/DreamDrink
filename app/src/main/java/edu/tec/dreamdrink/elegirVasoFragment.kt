@@ -29,7 +29,7 @@ class elegirVasoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
-            //findNavController().navigate(R.id.action_elegirVasoFragment_to_carruselFragament)
+            findNavController().navigate(R.id.action_elegirVasoFragment_to_pagoFragment2)
         }
     }
 

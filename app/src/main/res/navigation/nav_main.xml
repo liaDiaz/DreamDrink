@@ -24,4 +24,14 @@
         android:name="edu.tec.dreamdrink.carruselFragament"
         android:label="fragment_carrusel_fragament"
         tools:layout="@layout/fragment_carrusel_fragament" />
+    <fragment
+        android:id="@+id/seleccionarTamanoFragment"
+        android:name="edu.tec.dreamdrink.SeleccionarTamanoFragment"
+        android:label="fragment_seleccionar_tamano"
+        tools:layout="@layout/fragment_seleccionar_tamano" />
+    <fragment
+        android:id="@+id/pagoFragment"
+        android:name="edu.tec.dreamdrink.PagoFragment"
+        android:label="fragment_pago"
+        tools:layout="@layout/fragment_pago" />
 </navigation>
