@@ -57,6 +57,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             findNavController(R.id.contenedor).navigate(R.id.carritoFragment)
             Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
 
+        } else if (item.itemId  ==  R.id.nav_item_four) {
+            findNavController(R.id.contenedor).navigate(R.id.indexFragment)
+            Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show()
+
         }
 
 

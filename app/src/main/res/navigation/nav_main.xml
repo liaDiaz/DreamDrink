@@ -13,7 +13,11 @@
         android:id="@+id/elegirVasoFragment"
         android:name="edu.tec.dreamdrink.elegirVasoFragment"
         android:label="fragment_elegir_vaso"
-        tools:layout="@layout/fragment_elegir_vaso" />
+        tools:layout="@layout/fragment_elegir_vaso" >
+        <action
+            android:id="@+id/action_elegirVasoFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/carritoFragment"
         android:name="edu.tec.dreamdrink.carritoFragment"
@@ -24,4 +28,14 @@
         android:name="edu.tec.dreamdrink.carruselFragament"
         android:label="fragment_carrusel_fragament"
         tools:layout="@layout/fragment_carrusel_fragament" />
+    <fragment
+        android:id="@+id/indexFragment"
+        android:name="edu.tec.dreamdrink.indexFragment"
+        android:label="fragment_index"
+        tools:layout="@layout/fragment_index" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="edu.tec.dreamdrink.registerFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>
