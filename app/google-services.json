@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "847330749338",
+    "project_id": "proyectofinal2021-96e23",
+    "storage_bucket": "proyectofinal2021-96e23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847330749338:android:24a9d1f56deaf7f0d46823",
+        "android_client_info": {
+          "package_name": "edu.tec.dreamdrink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847330749338-v0945545bhv6piv3u1v1djdkjftbida4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD39EgRatC59yxnVohPXEGLGKvKMGWAuGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847330749338-v0945545bhv6piv3u1v1djdkjftbida4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "847330749338-ckchissdc4d6f1phch47fds0frl6cat5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "mx.itesm.A01339760.demoFireBase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

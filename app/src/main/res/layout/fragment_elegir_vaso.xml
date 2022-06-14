@@ -4,20 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".elegirVasoFragment">
+    tools:context=".Activities.incioSesionFragment"
+    android:background="#FBF8F1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
+            android:id="@+id/botonTrago"
+            android:layout_width="375dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#54BAB9"
+            android:drawableLeft="@drawable/vasochupon"
+            android:text="Trago"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botonCafe"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tipoTermoTV"
+            android:layout_width="306dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="132dp"
+            android:text="Selecciona tu tipo de envase"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botonVaso"
+            android:layout_width="375dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#54BAB9"
+            android:drawableLeft="@drawable/vasocontapa"
+            android:text="Vaso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tipoTermoTV"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/botonCilindro"
+            android:layout_width="375dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#54BAB9"
+            android:drawableLeft="@drawable/cilindro"
+            android:text="Cilindro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botonVaso"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/botonCafe"
+            android:layout_width="375dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#54BAB9"
+            android:drawableLeft="@drawable/vasochupon"
+            android:text="Café"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botonCilindro"
+            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

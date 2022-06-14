@@ -1,16 +1,15 @@
-package edu.tec.dreamdrink
+package edu.tec.dreamdrink.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import com.google.android.material.navigation.NavigationView
-import androidx.navigation.fragment.NavHostFragment
+import edu.tec.dreamdrink.R
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var  drawer: DrawerLayout
@@ -53,11 +52,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             findNavController(R.id.contenedor).navigate(R.id.elegirVasoFragment)
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show()
 
-        } else if (item.itemId  ==  R.id.nav_item_three) {
+        } else if (item.itemId  == R.id.nav_item_three) {
             findNavController(R.id.contenedor).navigate(R.id.carritoFragment)
             Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
 
-        } else if (item.itemId  ==  R.id.nav_item_four) {
+        } else if (item.itemId  == R.id.nav_item_four) {
             findNavController(R.id.contenedor).navigate(R.id.indexFragment)
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show()
 

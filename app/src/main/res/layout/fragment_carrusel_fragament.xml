@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBF8F1"
-    tools:context=".carruselFragament">
+    tools:context=".Activities.carruselFragament">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,6 @@
             android:layout_height="93dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="100dp"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +42,9 @@
             android:layout_width="279dp"
             android:layout_height="53dp"
             android:layout_marginTop="160dp"
+            android:background="#F7ECDE"
             android:text="Diseña tu termo"
+            android:textAlignment="center"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.564"
@@ -51,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/botonCarrusel"
             android:layout_width="268dp"
             android:layout_height="0dp"
             android:layout_marginBottom="32dp"
