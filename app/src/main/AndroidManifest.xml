@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamDrink">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.activity.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

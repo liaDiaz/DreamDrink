@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBF8F1"
-    tools:context=".Activities.selecionartamanoFragment">
+    tools:context=".Activities.activity.selecionartamanoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

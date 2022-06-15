@@ -1,4 +1,4 @@
-package edu.tec.dreamdrink.Activities
+package edu.tec.dreamdrink.Activities.activity.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,14 +8,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
+import edu.tec.dreamdrink.Activities.activity.indexFragment
+import edu.tec.dreamdrink.Activities.activity.utils.FirebaseUtilis.firebaseAuth
 import edu.tec.dreamdrink.R
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var  drawer: DrawerLayout
     private lateinit var toogle:ActionBarDrawerToggle
+    //private lateinit var inicioSesion: indexFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -43,6 +49,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override  fun onNavigationItemSelected(item: MenuItem): Boolean {
+        //inicioSesion = indexFragment()
         if (item.itemId == R.id.nav_item_one) {
            findNavController(R.id.contenedor).navigate(R.id.incioSesionFragment)
 
@@ -56,9 +63,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             findNavController(R.id.contenedor).navigate(R.id.carritoFragment)
             Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
 
+
         } else if (item.itemId  == R.id.nav_item_four) {
+
             findNavController(R.id.contenedor).navigate(R.id.indexFragment)
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show()
+
+
+        } else if (item.itemId  == R.id.nav_item_seven) {
+
+            logOut()
+
 
         }
 
@@ -66,6 +81,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun logOut(){
+
+            firebaseAuth.signOut()
+            findNavController(R.id.contenedor).navigate(R.id.indexFragment)
+
     }
 
 

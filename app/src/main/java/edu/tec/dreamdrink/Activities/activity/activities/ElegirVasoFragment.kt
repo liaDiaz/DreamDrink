@@ -1,4 +1,4 @@
-package edu.tec.dreamdrink.Activities
+package edu.tec.dreamdrink.Activities.activity
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

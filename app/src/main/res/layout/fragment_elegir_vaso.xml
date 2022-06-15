@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.incioSesionFragment"
+    tools:context=".Activities.activity.incioSesionFragment"
     android:background="#FBF8F1">
 
     <androidx.constraintlayout.widget.ConstraintLayout

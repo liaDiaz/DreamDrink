@@ -6,16 +6,16 @@
     app:startDestination="@id/incioSesionFragment">
     <fragment
         android:id="@+id/incioSesionFragment"
-        android:name="edu.tec.dreamdrink.Activities.incioSesionFragment"
+        android:name="edu.tec.dreamdrink.Activities.activity.incioSesionFragment"
         android:label="fragment_incio_sesion"
         tools:layout="@layout/fragment_incio_sesion" >
         <action
-            android:id="@+id/action_incioSesionFragment_to_elegirVasoFragment"
-            app:destination="@id/elegirVasoFragment" />
+            android:id="@+id/action_incioSesionFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
     </fragment>
     <fragment
         android:id="@+id/elegirVasoFragment"
-        android:name="edu.tec.dreamdrink.Activities.elegirVasoFragment"
+        android:name="edu.tec.dreamdrink.Activities.activity.elegirVasoFragment"
         android:label="fragment_elegir_vaso"
         tools:layout="@layout/fragment_elegir_vaso" >
         <action
@@ -42,16 +42,16 @@
     </fragment>
     <fragment
         android:id="@+id/carruselFragament"
-        android:name="edu.tec.dreamdrink.Activities.carruselFragament"
+        android:name="edu.tec.dreamdrink.Activities.activity.carruselFragament"
         android:label="fragment_carrusel_fragament"
         tools:layout="@layout/fragment_carrusel_fragament" >
         <action
-            android:id="@+id/action_carruselFragament_to_selecionartamanoFragment"
-            app:destination="@id/selecionartamanoFragment" />
+            android:id="@+id/action_carruselFragament_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
     </fragment>
     <fragment
         android:id="@+id/indexFragment"
-        android:name="edu.tec.dreamdrink.Activities.indexFragment"
+        android:name="edu.tec.dreamdrink.Activities.activity.indexFragment"
         android:label="fragment_index"
         tools:layout="@layout/fragment_index" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="edu.tec.dreamdrink.Activities.registerFragment"
+        android:name="edu.tec.dreamdrink.Activities.activity.registerFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -74,21 +74,17 @@
             app:destination="@id/indexFragment" />
     </fragment>
     <fragment
-        android:id="@+id/selecionartamanoFragment"
-        android:name="edu.tec.dreamdrink.Activities.selecionartamanoFragment"
-        android:label="fragment_selecionartamano"
-        tools:layout="@layout/fragment_selecionartamano" >
-        <action
-            android:id="@+id/action_selecionartamanoFragment_to_carritoFragment"
-            app:destination="@id/carritoFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/pagoFragment"
-        android:name="edu.tec.dreamdrink.Activities.pagoFragment"
+        android:name="edu.tec.dreamdrink.Activities.activity.pagoFragment"
         android:label="fragment_pago"
         tools:layout="@layout/fragment_pago" >
         <action
             android:id="@+id/action_pagoFragment_to_elegirVasoFragment"
             app:destination="@id/elegirVasoFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="edu.tec.dreamdrink.Activities.activity.activities.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>
