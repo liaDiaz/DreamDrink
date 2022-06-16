@@ -31,6 +31,7 @@ class carruselFragament : Fragment() {
     lateinit var tapa: String
     lateinit var cilindro: String
     lateinit var  resultadoTamano: String
+     var precio: Int = 0
 
 
     private val databaseReference = Firebase.database.getReference("termos")
@@ -59,6 +60,7 @@ class carruselFragament : Fragment() {
         carousel.registerLifecycle(viewLifecycleOwner)
         fabAgregaDatos()
         resultadoTamano= tamanoSelecionado()
+        precio= precioTermo(resultadoTamano)
 
         val carousel1: ImageCarousel = view.findViewById(R.id.carousel1)
         list.add(CarouselItem(R.drawable.cilindro))
@@ -107,6 +109,7 @@ class carruselFragament : Fragment() {
     }
     fun tamanoSelecionado(): String{
         var tamano = ""
+
         binding.botonTamanoSmall.setOnClickListener {
             binding.botonTamanoSmall.setBackgroundColor(Color.BLUE)
             tamano = "pequeño"
@@ -116,9 +119,25 @@ class carruselFragament : Fragment() {
             tamano = "mediano"
         }
         binding.botonTamanoLarge.setOnClickListener {
-            tamano = "largo"
+            tamano = "grande"
         }
         return tamano
+
+    }
+
+    fun precioTermo(resultadoTamano:String):Int {
+        var tamanoTermo= resultadoTamano
+        var precio = 0
+        if (resultadoTamano=="pequeño"){
+            precio = 50
+
+        }else if (resultadoTamano== "medioano"){
+            precio = 70
+        }else if(resultadoTamano== "grande"){
+            precio = 110
+
+        }
+        return precio
 
     }
 
@@ -132,7 +151,7 @@ class carruselFragament : Fragment() {
                 val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
 
                 val id = userReference.push().key!!
-                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano)
+                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio)
                 userReference.child(id).setValue(dataTermoFb)
                     .addOnSuccessListener {
                         Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()

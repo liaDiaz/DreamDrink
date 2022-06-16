@@ -12,12 +12,14 @@ data class DataTermo(
     val id: String,
     val tapa: String,
     val cilindro: String,
-    val tamano: String
+    val tamano: String,
+    val precio: Int
 ): Serializable
 
 data class DataTermoFb(
     val id: String? ="",
     val tapa: String?="",
     val cilindro: String?="",
-    val tamano: String?=""
+    val tamano: String?="",
+    val precio: Int?= 0
 ): Serializable
