@@ -1,6 +1,7 @@
 package edu.tec.dreamdrink.Activities.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,9 +15,14 @@ import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.listener.CarouselOnScrollListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.setFragmentResult
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
+import edu.tec.dreamdrink.Activities.activity.entities.DataTermoFb
+import edu.tec.dreamdrink.Activities.activity.utils.FirebaseUtilis.firebaseAuth
 
 
 class carruselFragament : Fragment() {
@@ -24,7 +30,10 @@ class carruselFragament : Fragment() {
     private val list= mutableListOf<CarouselItem>()
     lateinit var tapa: String
     lateinit var cilindro: String
-    lateinit var tamano: String
+    lateinit var  resultadoTamano: String
+
+
+    private val databaseReference = Firebase.database.getReference("termos")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +57,8 @@ class carruselFragament : Fragment() {
         list.add(CarouselItem(R.drawable.vasochupon))
         carousel.addData(list)
         carousel.registerLifecycle(viewLifecycleOwner)
+        fabAgregaDatos()
+        resultadoTamano= tamanoSelecionado()
 
         val carousel1: ImageCarousel = view.findViewById(R.id.carousel1)
         list.add(CarouselItem(R.drawable.cilindro))
@@ -89,32 +100,53 @@ class carruselFragament : Fragment() {
             }
         }
 
-            fun tamanoSelecionado(): String{
-                binding.botonTamanoSmall.setOnClickListener {
-                    tamano = "pequeño"
-
-                }
-                binding.botonTamanoMedium.setOnClickListener {
-                    tamano = "mediano"
-                }
-                binding.botonTamanoLarge.setOnClickListener {
-                    tamano = "largo"
-                }
-                return tamano
-            }
-
-        binding.botonConfirmar.setOnClickListener {
-            findNavController().navigate(R.id.action_carruselFragament_to_carritoFragment)
-            val termo = DataTermo("",tapa,cilindro,tamanoSelecionado())
-
-
-
-        }
 
 
 
 
     }
+    fun tamanoSelecionado(): String{
+        var tamano = ""
+        binding.botonTamanoSmall.setOnClickListener {
+            binding.botonTamanoSmall.setBackgroundColor(Color.BLUE)
+            tamano = "pequeño"
+
+        }
+        binding.botonTamanoMedium.setOnClickListener {
+            tamano = "mediano"
+        }
+        binding.botonTamanoLarge.setOnClickListener {
+            tamano = "largo"
+        }
+        return tamano
+
+    }
+
+    fun fabAgregaDatos(){
+
+        binding.botonConfirmar.setOnClickListener {
+
+            activity?.let {
+
+                //esto es para el gasto se guarde para el usuario
+                val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
+
+                val id = userReference.push().key!!
+                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano)
+                userReference.child(id).setValue(dataTermoFb)
+                    .addOnSuccessListener {
+                        Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
+                    }.addOnFailureListener {
+                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
+                    }
+
+            }
+        }
+
+    }
+
+
+
 
 
 }

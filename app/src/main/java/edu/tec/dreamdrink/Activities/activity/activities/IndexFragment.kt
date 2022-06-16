@@ -66,11 +66,11 @@ class indexFragment : Fragment() {
     //metodo de ciclo de vida porque son los metodos que se ejecutan onStart()
     override fun onStart() {
         super.onStart()
-        FirebaseUtilis.firebaseUser?.let {
+        val usuario : FirebaseUser? = firebaseAuth.currentUser
+        usuario?.let {
             findNavController().navigate(R.id.action_indexFragment_to_elegirVasoFragment)
-
         }
-       // findNavController().navigate(R.id.action_indexFragment_to_registerFragment)
+
 
     }
 
