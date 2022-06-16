@@ -29,7 +29,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/tipoTermoTV"
+            android:id="@+id/tamanoTV"
             android:layout_width="306dp"
             android:layout_height="81dp"
             android:layout_marginTop="132dp"
@@ -52,7 +52,7 @@
             android:text="Vaso"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipoTermoTV"
+            app:layout_constraintTop_toBottomOf="@+id/tamanoTV"
             tools:ignore="MissingConstraints" />
 
         <Button

@@ -87,10 +87,10 @@
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tamanoTV"
             android:layout_width="66dp"
             android:layout_height="21dp"
-            android:text="Vaso café"
+            android:text="Grande"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
@@ -100,7 +100,7 @@
             app:layout_constraintVertical_bias="0.142" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/precioTV"
             android:layout_width="66dp"
             android:layout_height="21dp"
             android:text="$278.78"

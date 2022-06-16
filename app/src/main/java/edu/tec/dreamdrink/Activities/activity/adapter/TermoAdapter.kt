@@ -1,4 +1,31 @@
 package edu.tec.dreamdrink.Activities.activity.adapter
 
-class TermoAdapter {
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
+import edu.tec.dreamdrink.R
+import java.util.*
+
+class TermoAdapter(private var termos: List<DataTermo>) : RecyclerView.Adapter<TermoViewHolder>() {
+
+    fun getTermos(position: Int) : DataTermo{
+        return termos[position]
+    }
+    fun setTermos(termos: List<DataTermo>){
+        this.termos = termos
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermoViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return TermoViewHolder(layoutInflater.inflate(R.layout.gasto, parent, false))
+    }
+
+    override fun getItemCount(): Int = gastos.size
+
+
+    override fun onBindViewHolder(holder: GastoViewHolder, position: Int) {
+        val item = gastos[position]
+        holder.bind(item)
+    }
 }

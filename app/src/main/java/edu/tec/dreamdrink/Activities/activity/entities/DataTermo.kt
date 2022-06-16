@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity
-
 data class DataTermo(
 
 @PrimaryKey(autoGenerate = false)
