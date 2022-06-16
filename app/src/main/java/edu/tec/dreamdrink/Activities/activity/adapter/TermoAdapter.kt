@@ -18,14 +18,14 @@ class TermoAdapter(private var termos: List<DataTermo>) : RecyclerView.Adapter<T
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return TermoViewHolder(layoutInflater.inflate(R.layout.gasto, parent, false))
+        return TermoViewHolder(layoutInflater.inflate(R.layout.renglon_carrito_termo, parent, false))
     }
 
-    override fun getItemCount(): Int = gastos.size
+    override fun getItemCount(): Int = termos.size
 
 
-    override fun onBindViewHolder(holder: GastoViewHolder, position: Int) {
-        val item = gastos[position]
+    override fun onBindViewHolder(holder: TermoViewHolder, position: Int) {
+        val item = termos[position]
         holder.bind(item)
     }
 }

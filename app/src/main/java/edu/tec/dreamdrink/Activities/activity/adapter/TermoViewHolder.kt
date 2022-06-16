@@ -4,11 +4,13 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
 import edu.tec.dreamdrink.databinding.FragmentCarritoBinding
+import edu.tec.dreamdrink.databinding.RenglonCarritoTermoBinding
 
 class TermoViewHolder (view: View): RecyclerView.ViewHolder(view){
-    private val binding = FragmentCarritoBinding.bind(view)
+    private val binding = RenglonCarritoTermoBinding.bind(view)
     fun bind(termo: DataTermo){
-        binding.tamanoTV.text = termo.tamano
-        binding.precioTV.text = "${ termo.precio }"
+
+        binding.textView3.text = termo.tamano
+       binding.textView6.text = termo.precio.toString()
     }
 }

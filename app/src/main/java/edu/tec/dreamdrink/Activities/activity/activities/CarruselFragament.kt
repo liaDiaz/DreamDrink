@@ -59,7 +59,8 @@ class carruselFragament : Fragment() {
         carousel.addData(list)
         carousel.registerLifecycle(viewLifecycleOwner)
         fabAgregaDatos()
-        resultadoTamano= tamanoSelecionado()
+        resultadoTamano= ""
+        tamanoSelecionado()
         precio= precioTermo(resultadoTamano)
 
         val carousel1: ImageCarousel = view.findViewById(R.id.carousel1)
@@ -108,20 +109,21 @@ class carruselFragament : Fragment() {
 
     }
     fun tamanoSelecionado(): String{
-        var tamano = ""
+
 
         binding.botonTamanoSmall.setOnClickListener {
             binding.botonTamanoSmall.setBackgroundColor(Color.BLUE)
-            tamano = "pequeño"
+
+            resultadoTamano = "pequeño"
 
         }
         binding.botonTamanoMedium.setOnClickListener {
-            tamano = "mediano"
+            resultadoTamano = "mediano"
         }
         binding.botonTamanoLarge.setOnClickListener {
-            tamano = "grande"
+            resultadoTamano = "grande"
         }
-        return tamano
+        return resultadoTamano
 
     }
 
@@ -155,6 +157,7 @@ class carruselFragament : Fragment() {
                 userReference.child(id).setValue(dataTermoFb)
                     .addOnSuccessListener {
                         Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
+                        findNavController().navigate(R.id.action_carruselFragament_to_carritoFragment)
                     }.addOnFailureListener {
                         Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                     }
