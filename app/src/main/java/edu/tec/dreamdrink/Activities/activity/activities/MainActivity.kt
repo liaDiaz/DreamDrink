@@ -54,14 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
            findNavController(R.id.contenedor).navigate(R.id.incioSesionFragment)
 
                 Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()
-        }
-        else if(item.itemId  == R.id.nav_item_two){
-            findNavController(R.id.contenedor).navigate(R.id.elegirVasoFragment)
-            Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show()
-
-        } else if (item.itemId  == R.id.nav_item_three) {
-            findNavController(R.id.contenedor).navigate(R.id.carritoFragment)
-            Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
 
 
         } else if (item.itemId  == R.id.nav_item_four) {

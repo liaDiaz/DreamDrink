@@ -3,10 +3,6 @@
     <group>
         <item android:id="@+id/nav_item_one"
             android:title="Pagina principal"/>
-        <item android:id="@+id/nav_item_two"
-            android:title="Elegir vaso"/>
-        <item android:id="@+id/nav_item_three"
-            android:title="Carrito"/>
         <item android:id="@+id/nav_item_four"
             android:title="Iniciar sesion"/>
     </group>
