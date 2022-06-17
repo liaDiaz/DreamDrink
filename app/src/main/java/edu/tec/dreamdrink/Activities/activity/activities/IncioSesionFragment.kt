@@ -30,9 +30,7 @@
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
-            binding.button3.setOnClickListener {
-                findNavController().navigate(R.id.action_incioSesionFragment_to_indexFragment)
-            }
+
         }
 
     }

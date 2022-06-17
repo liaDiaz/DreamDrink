@@ -101,7 +101,7 @@ class carritoFragment : Fragment() {
                 for (termoObject in snapshot.children){
                     val objeto = termoObject.getValue(DataTermoFb::class.java)
                     lista.add(DataTermo(objeto!!.id.toString(),objeto.tapa!!,objeto.cilindro!!,
-                        objeto!!.tamano!!, objeto.precio!!))
+                        objeto!!.tamano!!, objeto.precio!!, objeto.tipoBaso!!))
                     total= total+objeto.precio
                     println("este es mi total de lista: ${total}")
 

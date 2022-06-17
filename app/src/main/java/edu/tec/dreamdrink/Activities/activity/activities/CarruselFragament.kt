@@ -15,6 +15,7 @@ import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.listener.CarouselOnScrollListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.setFragmentResult
@@ -33,6 +34,7 @@ class carruselFragament : Fragment() {
     lateinit var cilindro: String
     lateinit var  resultadoTamano: String
     var precio by Delegates.notNull<Double>()
+    var tipoVaso = ""
 
 
     private val databaseReference = Firebase.database.getReference("termos")
@@ -53,6 +55,7 @@ class carruselFragament : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        tipoVaso = arguments?.getString("vaso").toString()
 
         val carousel: ImageCarousel = view.findViewById(R.id.carousel)
         list.add(CarouselItem(R.drawable.cilindro))
@@ -140,7 +143,7 @@ class carruselFragament : Fragment() {
                 val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
 
                 val id = userReference.push().key!!
-                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio)
+                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio, tipoVaso )
                 userReference.child(id).setValue(dataTermoFb)
                     .addOnSuccessListener {
                         Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
