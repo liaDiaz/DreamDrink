@@ -21,15 +21,6 @@
         <action
             android:id="@+id/action_elegirVasoFragment_to_carruselFragament3"
             app:destination="@id/carruselFragament" />
-        <action
-            android:id="@+id/action_elegirVasoFragment_to_carruselFragament4"
-            app:destination="@id/carruselFragament" />
-        <action
-            android:id="@+id/action_elegirVasoFragment_to_carruselFragament5"
-            app:destination="@id/carruselFragament" />
-        <action
-            android:id="@+id/action_elegirVasoFragment_to_carruselFragament6"
-            app:destination="@id/carruselFragament" />
     </fragment>
     <fragment
         android:id="@+id/carritoFragment"
@@ -48,6 +39,10 @@
         <action
             android:id="@+id/action_carruselFragament_to_carritoFragment"
             app:destination="@id/carritoFragment" />
+        <argument
+            android:name="vaso"
+            app:argType="string"
+            android:defaultValue="Vaso" />
     </fragment>
     <fragment
         android:id="@+id/indexFragment"

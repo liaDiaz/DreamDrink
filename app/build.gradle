@@ -4,6 +4,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -71,6 +72,7 @@ dependencies {
 
     def lifecycle_version = "2.5.0-alpha06"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
 
 
 }
