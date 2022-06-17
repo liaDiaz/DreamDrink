@@ -13,7 +13,8 @@ interface DataTermoDao{
     fun getAllTermos(): Flow<List<DataTermo>>
 
     //"SELECT SUM(monto) from Gasto"
-    //este insert es para local
+    @Query("select sum(precio) from DataTermo")
+    suspend fun sumarPrecio():Double
     @Insert
     suspend fun insertTermo(dataTermo: DataTermo)
 }

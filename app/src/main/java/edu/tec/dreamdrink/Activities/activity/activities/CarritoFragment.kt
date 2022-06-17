@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -15,11 +17,16 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.tsuryo.swipeablerv.SwipeLeftRightCallback
 import edu.tec.dreamdrink.Activities.activity.adapter.TermoAdapter
+import edu.tec.dreamdrink.Activities.activity.dao.DataTermoDao
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermoFb
+import edu.tec.dreamdrink.Activities.activity.mvvc.MainActivityVModel
 import edu.tec.dreamdrink.Activities.activity.utils.FirebaseUtilis.firebaseAuth
 import edu.tec.dreamdrink.R
 import edu.tec.dreamdrink.databinding.FragmentCarritoBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class carritoFragment : Fragment() {
@@ -27,6 +34,7 @@ class carritoFragment : Fragment() {
 
     private lateinit var  termos: List<DataTermo>
     private lateinit var adapter: TermoAdapter
+    private lateinit var viewModel: MainActivityVModel
     private val databaseReference = Firebase.database.getReference("termos")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +57,7 @@ class carritoFragment : Fragment() {
         binding.button3.setOnClickListener {
             findNavController().navigate(R.id.action_carritoFragment_to_pagoFragment)
         }
+        //binding.precioTotal.text = viewModel.sumaGastos().toString()
     }
 
     private fun initRecycler(){
@@ -82,6 +91,9 @@ class carritoFragment : Fragment() {
 
     }
     private fun initViewModel(){
+
+
+
         val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
         userReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -101,6 +113,8 @@ class carritoFragment : Fragment() {
 
         })
 
+
     }
+
 
 }

@@ -31,7 +31,7 @@ class carruselFragament : Fragment() {
     lateinit var tapa: String
     lateinit var cilindro: String
     lateinit var  resultadoTamano: String
-     var precio: Int = 0
+     var precio: Double = 0.0
 
 
     private val databaseReference = Firebase.database.getReference("termos")
@@ -127,16 +127,16 @@ class carruselFragament : Fragment() {
 
     }
 
-    fun precioTermo(resultadoTamano:String):Int {
+    fun precioTermo(resultadoTamano:String):Double {
         var tamanoTermo= resultadoTamano
-        var precio = 0
+        var precio = 0.0
         if (resultadoTamano=="pequeño"){
-            precio = 50
+            precio = 50.0
 
         }else if (resultadoTamano== "medioano"){
-            precio = 70
+            precio = 70.0
         }else if(resultadoTamano== "grande"){
-            precio = 110
+            precio = 110.0
 
         }
         return precio
