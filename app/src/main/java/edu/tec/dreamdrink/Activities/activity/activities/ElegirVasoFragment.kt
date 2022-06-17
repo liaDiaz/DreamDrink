@@ -14,8 +14,6 @@ import edu.tec.dreamdrink.R
 import edu.tec.dreamdrink.databinding.FragmentElegirVasoBinding
 
 class elegirVasoFragment : Fragment() {
-
-
     lateinit var binding: FragmentElegirVasoBinding
     lateinit var tipoVaso:String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +31,8 @@ class elegirVasoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding.botonCafe.setOnClickListener {
             tipoVaso="Vaso"
-            // Use the Kotlin extension in the fragment-ktx artifact
-            setFragmentResult("requestKey", bundleOf("bundleKey" to tipoVaso))
-
             findNavController().navigate(R.id.action_elegirVasoFragment_to_carruselFragament3)
         }
         binding.botonCilindro.setOnClickListener {

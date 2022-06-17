@@ -33,17 +33,12 @@ class carruselFragament : Fragment() {
     lateinit var cilindro: String
     lateinit var  resultadoTamano: String
      var precio: Int = 0
-    lateinit var tipoVasot:String
 
 
     private val databaseReference = Firebase.database.getReference("termos")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragmentResultListener("requestKey") { key, bundle ->
-            tipoVasot = bundle.getString("bundleKey").toString()
-
-        }
     }
 
     override fun onCreateView(
@@ -148,27 +143,30 @@ class carruselFragament : Fragment() {
     }
 
     fun fabAgregaDatos(){
+        setFragmentResultListener("requestKey") { key, bundle ->
+            var tipoVasot = bundle.getString("bundleKey").toString()
+            binding.botonConfirmar.setOnClickListener {
 
-        binding.botonConfirmar.setOnClickListener {
+                activity?.let {
 
-            activity?.let {
+                    //esto es para el gasto se guarde para el usuario
+                    val userReference =
+                        databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
 
-                //esto es para el gasto se guarde para el usuario
-                val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
+                    val id = userReference.push().key!!
+                    val dataTermoFb =
+                        DataTermoFb(id, tapa, cilindro, resultadoTamano, precio, tipoVasot)
+                    userReference.child(id).setValue(dataTermoFb)
+                        .addOnSuccessListener {
+                            Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
+                            findNavController().navigate(R.id.action_carruselFragament_to_carritoFragment)
+                        }.addOnFailureListener {
+                            Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
+                        }
 
-                val id = userReference.push().key!!
-                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio, tipoVasot)
-                userReference.child(id).setValue(dataTermoFb)
-                    .addOnSuccessListener {
-                        Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
-                        findNavController().navigate(R.id.action_carruselFragament_to_carritoFragment)
-                    }.addOnFailureListener {
-                        Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
-                    }
-
+                }
             }
         }
-
     }
 
 
