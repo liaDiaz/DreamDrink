@@ -27,6 +27,7 @@ import edu.tec.dreamdrink.databinding.FragmentCarritoBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.properties.Delegates
 
 
 class carritoFragment : Fragment() {
@@ -57,7 +58,7 @@ class carritoFragment : Fragment() {
         binding.button3.setOnClickListener {
             findNavController().navigate(R.id.action_carritoFragment_to_pagoFragment)
         }
-        //binding.precioTotal.text = viewModel.sumaGastos().toString()
+
     }
 
     private fun initRecycler(){
@@ -91,19 +92,24 @@ class carritoFragment : Fragment() {
 
     }
     private fun initViewModel(){
-
-
-
         val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
         userReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var lista = mutableListOf<DataTermo>()
-                for (gastoObject in snapshot.children){
-                    val objeto = gastoObject.getValue(DataTermoFb::class.java)
+                var total by Delegates.notNull<Double>()
+                total = 0.0
+                for (termoObject in snapshot.children){
+                    val objeto = termoObject.getValue(DataTermoFb::class.java)
                     lista.add(DataTermo(objeto!!.id.toString(),objeto.tapa!!,objeto.cilindro!!,
                         objeto!!.tamano!!, objeto.precio!!))
+                    total= total+objeto.precio
+                    println("este es mi total de lista: ${total}")
+
                 }
+                binding.precioTotal.text = total.toString()
+
                 adapter.setTermos(lista)
+                adapter.getTotal(total)
                 adapter.notifyDataSetChanged()
             }
 

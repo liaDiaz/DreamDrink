@@ -23,6 +23,7 @@ import com.google.firebase.ktx.Firebase
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermoFb
 import edu.tec.dreamdrink.Activities.activity.utils.FirebaseUtilis.firebaseAuth
+import kotlin.properties.Delegates
 
 
 class carruselFragament : Fragment() {
@@ -31,7 +32,7 @@ class carruselFragament : Fragment() {
     lateinit var tapa: String
     lateinit var cilindro: String
     lateinit var  resultadoTamano: String
-     var precio: Double = 0.0
+    var precio by Delegates.notNull<Double>()
 
 
     private val databaseReference = Firebase.database.getReference("termos")
@@ -60,8 +61,9 @@ class carruselFragament : Fragment() {
         carousel.registerLifecycle(viewLifecycleOwner)
         fabAgregaDatos()
         resultadoTamano= ""
+        precio = 0.0
         tamanoSelecionado()
-        precio= precioTermo(resultadoTamano)
+
 
         val carousel1: ImageCarousel = view.findViewById(R.id.carousel1)
         list.add(CarouselItem(R.drawable.cilindro))
@@ -108,40 +110,25 @@ class carruselFragament : Fragment() {
 
 
     }
-    fun tamanoSelecionado(): String{
-
-
+    fun tamanoSelecionado(){
         binding.botonTamanoSmall.setOnClickListener {
             binding.botonTamanoSmall.setBackgroundColor(Color.BLUE)
-
             resultadoTamano = "pequeño"
+            precio = 50.0
 
         }
         binding.botonTamanoMedium.setOnClickListener {
             resultadoTamano = "mediano"
+            precio = 70.0
         }
         binding.botonTamanoLarge.setOnClickListener {
             resultadoTamano = "grande"
-        }
-        return resultadoTamano
-
-    }
-
-    fun precioTermo(resultadoTamano:String):Double {
-        var tamanoTermo= resultadoTamano
-        var precio = 0.0
-        if (resultadoTamano=="pequeño"){
-            precio = 50.0
-
-        }else if (resultadoTamano== "medioano"){
-            precio = 70.0
-        }else if(resultadoTamano== "grande"){
             precio = 110.0
-
         }
-        return precio
 
     }
+
+
 
     fun fabAgregaDatos(){
 

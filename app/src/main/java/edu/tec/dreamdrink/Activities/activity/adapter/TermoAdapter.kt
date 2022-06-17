@@ -15,6 +15,9 @@ class TermoAdapter(private var termos: List<DataTermo>) : RecyclerView.Adapter<T
     fun setTermos(termos: List<DataTermo>){
         this.termos = termos
     }
+    fun getTotal(total:Double): Double{
+        return total
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
