@@ -44,14 +44,20 @@ class elegirVasoFragment : Fragment() {
         }
         binding.botonCilindro.setOnClickListener {
             tipoVaso = "Cilindro"
+            val action =elegirVasoFragmentDirections.actionElegirVasoFragmentToCarruselFragament3(tipoVaso)
+            findNavController().navigate(action)
 
         }
         binding.botonTrago.setOnClickListener {
             tipoVaso = "Cafe"
+            val action =elegirVasoFragmentDirections.actionElegirVasoFragmentToCarruselFragament3(tipoVaso)
+            findNavController().navigate(action)
 
         }
         binding.botonVaso.setOnClickListener {
             tipoVaso = "Trago"
+            val action =elegirVasoFragmentDirections.actionElegirVasoFragmentToCarruselFragament3(tipoVaso)
+            findNavController().navigate(action)
 
         }
     }

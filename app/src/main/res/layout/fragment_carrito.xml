@@ -46,12 +46,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:leftBgColor="@color/red"
-            app:leftImage="@drawable/common_google_signin_btn_icon_dark"
-            app:leftText="Delete"
-            app:rightBgColor="@color/blue"
-            app:rightImage="@drawable/common_google_signin_btn_icon_dark"
-            app:rightText="Read"
+            app:leftBgColor="@color/white"
+            app:leftImage="@drawable/ic_chevron_right"
+            app:leftText="Read"
+            app:rightBgColor="@color/red"
+            app:rightImage="@drawable/ic_chevron_right"
+            app:rightText="Delete"
             app:textColor="@android:color/white"
             app:textSize="20sp" />
 
