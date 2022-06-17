@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -89,7 +90,7 @@ class carritoFragment : Fragment() {
                 for (gastoObject in snapshot.children){
                     val objeto = gastoObject.getValue(DataTermoFb::class.java)
                     lista.add(DataTermo(objeto!!.id.toString(),objeto.tapa!!,objeto.cilindro!!,
-                        objeto!!.tamano!!, objeto.precio!!))
+                        objeto!!.tamano!!, objeto.precio!!,objeto.tipoVaso!!))
                 }
                 adapter.setTermos(lista)
                 adapter.notifyDataSetChanged()

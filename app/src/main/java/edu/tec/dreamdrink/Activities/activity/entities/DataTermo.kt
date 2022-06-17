@@ -12,7 +12,8 @@ data class DataTermo(
     val tapa: String,
     val cilindro: String,
     val tamano: String,
-    val precio: Int
+    val precio: Int,
+val tipoVaso:String
 ): Serializable
 
 data class DataTermoFb(
@@ -20,5 +21,6 @@ data class DataTermoFb(
     val tapa: String?="",
     val cilindro: String?="",
     val tamano: String?="",
-    val precio: Int?= 0
+    val precio: Int?= 0,
+    val tipoVaso: String=""
 ): Serializable

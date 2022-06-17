@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_carruselFragament_to_carritoFragment"
             app:destination="@id/carritoFragment" />
+        <argument
+            android:name="TipoVaso"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/indexFragment"
