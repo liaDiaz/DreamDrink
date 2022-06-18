@@ -14,6 +14,7 @@ data class DataTermo(
     val tamano: String,
     val precio: Double,
     val tipoVaso:String
+
 ): Serializable
 
 data class DataTermoFb(

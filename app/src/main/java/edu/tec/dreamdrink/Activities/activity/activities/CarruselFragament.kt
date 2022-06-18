@@ -19,6 +19,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import edu.tec.dreamdrink.Activities.activity.entities.DataTermo
@@ -41,8 +42,6 @@ class carruselFragament : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(
@@ -134,16 +133,17 @@ class carruselFragament : Fragment() {
 
 
     fun fabAgregaDatos(){
+        setFragmentResultListener("requestKey") { key, bundle ->
+            var tipoVasot = bundle.getString("bundleKey").toString()
+            binding.botonConfirmar.setOnClickListener {
 
-        binding.botonConfirmar.setOnClickListener {
-
-            activity?.let {
+                activity?.let {
 
                 //esto es para el gasto se guarde para el usuario
                 val userReference = databaseReference.child(firebaseAuth.currentUser!!.uid.toString())
 
                 val id = userReference.push().key!!
-                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio, tipoVaso )
+                val dataTermoFb = DataTermoFb(id,tapa, cilindro, resultadoTamano, precio, tipoVaso)
                 userReference.child(id).setValue(dataTermoFb)
                     .addOnSuccessListener {
                         Toast.makeText(activity, "Agregado", Toast.LENGTH_LONG).show()
@@ -152,9 +152,9 @@ class carruselFragament : Fragment() {
                         Toast.makeText(activity, "Error", Toast.LENGTH_LONG).show()
                     }
 
+                }
             }
         }
-
     }
 
 

@@ -43,6 +43,7 @@
             android:name="vaso"
             app:argType="string"
             android:defaultValue="Vaso" />
+
     </fragment>
     <fragment
         android:id="@+id/indexFragment"
